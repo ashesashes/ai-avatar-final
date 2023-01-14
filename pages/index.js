@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import Script from 'next/script';
 import Head from 'next/head';
 import Image from 'next/image'; 
 import ReactGA from 'react-ga'; 
+
 
 //import buildspaceLogo from '../assets/logo.png';
 
 const TRACKING_ID = "G-HCYNLDX2FS"; // GOOGLE_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
+
+
 
 const Home = () => {
   const maxRetries = 20;
@@ -43,7 +47,7 @@ const Home = () => {
   const onChange = (event) => {
     setInput(event.target.value);
   };
-  
+
   const generateAction = async () => {
     console.log('Generating...');	
 
@@ -117,12 +121,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    /* ga */ 
-    
-      if(process.env.googleAnalyticsID && process.env.NODE_ENV === "production") { // Checks for GA ID and only turns on GA in production
-        ReactGA.initialize(process.env.googleAnalyticsID);
-        ReactGA.pageview(window.location.pathname + window.location.search);
-      }
+
 
     const runRetry = async () => {
       if (retryCount === 0) {
@@ -150,6 +149,19 @@ const Home = () => {
   <Head>
     <title> Jungkook Magic Mirror Portraits</title>
   </Head>
+  <Script
+        src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+        strategy="afterInteractive"
+      />
+  <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config','G-HCYNLDX2FS');
+        `}
+    </Script>
   <div className = "container">
     <div className="header">
       <div className="header-title">
