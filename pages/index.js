@@ -5,8 +5,8 @@ import ReactGA from 'react-ga';
 
 //import buildspaceLogo from '../assets/logo.png';
 
-ReactGA.initialize('G-HCYNLDX2FS'); 
-/*ReactGA.pageview(window.location.pathname + window.location.search);*/
+const TRACKING_ID = "G-HCYNLDX2FS"; // GOOGLE_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 const Home = () => {
   const maxRetries = 20;
@@ -37,7 +37,8 @@ const Home = () => {
     "jungkook at a tea party by thomas kinkade, trending on artstation 8K",
     "Jungkook is a hacker programming at a computer in a room full of gadgets,by makoto shinkai and ghibli studio,outlined silhouettes,dramatic lighting,highly detailed,incredible quality,trending on artstation",
     "Portrait of jungkook as Thor, muscular, fantasy, intricate, elegant, highly detailed, digital painting, art station, concept art, smooth, sharp focus, illustration, art by art germ and greg rutkowski and alphonse mucha",
-    "Anime portrait of jungkook arty vibes, greyscale, purple tint"
+    "Anime portrait of jungkook arty vibes, greyscale, purple tint",
+    "anime concept art of jungkook musdcular beautiful wow vibes"
   ]);
   const onChange = (event) => {
     setInput(event.target.value);

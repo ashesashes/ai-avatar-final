@@ -4,8 +4,3 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
-module.exports = {
-  env: {
-    googleAnalyticsID: ""
-  }
-};
