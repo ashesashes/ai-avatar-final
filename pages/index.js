@@ -1,8 +1,12 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image'; 
+import ReactGA from 'react-ga'; 
 
 //import buildspaceLogo from '../assets/logo.png';
+
+ReactGA.initialize('G-HCYNLDX2FS'); 
+/*ReactGA.pageview(window.location.pathname + window.location.search);*/
 
 const Home = () => {
   const maxRetries = 20;
@@ -112,6 +116,13 @@ const Home = () => {
   };
 
   useEffect(() => {
+    /* ga */ 
+    
+      if(process.env.googleAnalyticsID && process.env.NODE_ENV === "production") { // Checks for GA ID and only turns on GA in production
+        ReactGA.initialize(process.env.googleAnalyticsID);
+        ReactGA.pageview(window.location.pathname + window.location.search);
+      }
+
     const runRetry = async () => {
       if (retryCount === 0) {
         console.log(`Model still loading after ${maxRetries} retries. Try request again in 5 minutes.`);
