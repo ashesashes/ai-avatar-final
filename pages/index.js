@@ -138,7 +138,7 @@ const Home = () => {
   <Head>
     <title> Jungkook Magic Mirror Portraits</title>
   </Head>
-  <!-- Google tag (gtag.js) -->
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCYNLDX2FS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
