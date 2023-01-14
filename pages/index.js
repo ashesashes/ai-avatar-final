@@ -140,15 +140,17 @@ const Home = () => {
        </div>
           </a>
       </div>
+      
     </div>
     </div>
-  </div>
-  {img && 
+    {img && 
     <div className="output-content">
       <Image src={img} width={512} height={512} alt={finalPrompt} />
       <p>{finalPrompt}</p>
     </div>
   }
+  </div>
+  
 </div>
   );
 };
