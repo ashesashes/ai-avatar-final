@@ -11,6 +11,8 @@ body {
     place-content: center flex-start;
     align-items: center;
     background-color: rgb(0, 0, 0);
+    background-image: linear-gradient(to bottom, #434343 0%, black 100%);
+   /* background-image: linear-gradient( 333.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );*/
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
@@ -138,7 +140,7 @@ body {
 .generate-button {
     place-content: flex-start;
     align-items: flex-start;
-    background-color: #F32E98;
+    background-color: #9127ee;
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
@@ -166,6 +168,31 @@ body {
 .generate p {
     color: rgb(255, 255, 255);
     margin: 0;
+}
+
+.random-prompt {
+    outline: none; 
+    display: flex; 
+    text-decoration: dashed;
+    text-transform: none;
+}
+
+.random-prompt h5 {
+    text-decoration: underline dotted;
+    text-transform: none;
+    text-align: center;
+    border-color: rgba(52, 4, 74, 0.1);
+    /*background-color: aqua;*/
+    z-index: 1;
+}
+.random-prompt h5:hover {
+    background-color: #9127ee;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.random-prompt a:hover {
+    outline: #fff;
 }
 
 .loading {

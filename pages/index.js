@@ -14,6 +14,27 @@ const Home = () => {
   const [retryCount, setRetryCount] = useState(maxRetries);
   const [isGenerating, setIsGenerating] = useState(false);
   const [finalPrompt, setFinalPrompt] = useState(''); 
+  const [promptArray, setPromptArray] = useState([
+    "ink sketch of jungkook highly detailed beautiful realistic ",
+    "Jungkook as pixar character, baseball player, photorealistic, hdr, symmetrical face, 4k, 8k",
+    "Charcoal sketch of jungkook",
+    "Jungkook as a 'pirate, astronaut, dragon', cartoonish, hdr, symmetrical face, 4k, 8k",
+    "Jungkook as a 'warrior', photorealistic, hdr, symmetrical face, 4k, 8k",
+    "Jungkook as samurai master, character art portrait, anime key visual, strong face, 8 k wallpaper, very high detailed, sharp focus, morandi color scheme, art station, by krenz cushart beautiful eyes no deformities  photorealistic uhd 8K",
+    "portrait of Jungkook as Batman cyberpunk sharp details,sharp focus,elegant,highly detailed,illustration,by jordan grimmer and greg rutkowski and pine ( ハイネ ) wlop,intricate,beautiful,trending artstation,pixiv,digital art",
+    "Jungkook as a mecha pilot, in the style of Chriss Foss, Darrell K. Sweet and Michael Whelanberserk, singleface, cinematic lighting, cinematic shot + photos taken by ARRI, photos taken by sony, photos taken by canon, photos taken by nikon, photos taken by sony, photos taken by hasselblad + incredibly detailed, sharpen, details + professional lighting, photography lighting + 50mm, 80mm, 100m + lightroom gallery + behance photographys + unsplash",
+    "jungkook in peaky blinders style of john singer sargeant, rembrandt",
+    "Jungkook in the style of stained glass cathedral, alphonse much, James jean, Erin Hanson, hyper detailed, backlit, vibrant",
+    "Anime key visual of jungkook as a man wearing white shirt and red tie, intricate, magical forest, stunning, highly detailed, digital painting, artstation, smooth, hard focus, illustration, predator movie, prey movie 2 0 2 2, art by artgerm and greg rutkowski and alphonse mucha uhd 8K ",
+    "highly detailed, digital painting of jungkook, artstation, concept art, sharp focus, illustration, cinematic lighting, art by artgerm and greg rutkowski and alphonse mucha | asymmetrical, ugly, deformed, disfigured, cartoon",
+    "Portrait art of jungkook as a samurai,detailed,intricate,full of colour,cinematic lighting,4k,focused,extreme details,cinematic,masterpiece | ugly, deformed, too many hands, extra limbs, disfigured, asymmetrical",
+    "jungkook portrait with classical floral elements emanating from center of face,woodcutting template,decorative design,classical ornament,motif, bilateral symmetry,roses,leaves,flowers,buds,flowering buds,feathers,negative space,highly detailed etching",
+    "Stylish haute couture outfit worn by jungkook in the style of 90's vintage anime,surrealism,akira style. detailed line art. fine details. inside a 7/11 in tokyo | grid of images, multiple people", 
+    "jungkook at a tea party by thomas kinkade, trending on artstation 8K",
+    "Jungkook is a hacker programming at a computer in a room full of gadgets,by makoto shinkai and ghibli studio,outlined silhouettes,dramatic lighting,highly detailed,incredible quality,trending on artstation",
+    "Portrait of jungkook as Thor, muscular, fantasy, intricate, elegant, highly detailed, digital painting, art station, concept art, smooth, sharp focus, illustration, art by art germ and greg rutkowski and alphonse mucha",
+    "Anime portrait of jungkook arty vibes, greyscale, purple tint"
+  ]);
   const onChange = (event) => {
     setInput(event.target.value);
   };
@@ -78,6 +99,12 @@ const Home = () => {
 
   };
 
+  //Add random prompt function
+  const randomPrompt = () => {
+    const randomNumber = Math.floor(Math.random() * (promptArray.length));
+    setInput(promptArray[randomNumber]);
+  };
+
   const sleep = (ms) => {
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
@@ -118,11 +145,20 @@ const Home = () => {
       </div>
       <div className="header-subtitle">
         <h2>
-          Re-imagine Jungkook as a pirate, cyberpunk, or anything!
+          Make Jungkook fanart in 1 click - describe what you want to see
         </h2>
       </div>
+      <div className="text">
+            <a className="random-prompt" onClick={randomPrompt}>
+                       {isGenerating ? (
+                                <span></span>
+                            ) : ( 
+                              <h5> 🔮 tap for a random inspiration </h5>
+                              )}
+              </a>
+          </div>
       <div className="prompt-container">
-      <input className="prompt-box" placeholder="example: anime portrait of jungkook arty vibes greyscale pink tint" value={input} onChange={onChange} />
+      <input className="prompt-box" placeholder="for example: anime portrait of jungkook arty vibes greyscale pink tint" value={input} onChange={onChange} />
         <div className="prompt-buttons">
           <a 
           className={
