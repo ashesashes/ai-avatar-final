@@ -183,6 +183,7 @@ const Home = () => {
           </div>
       <div className="prompt-container">
       <input className="prompt-box" placeholder="for example: anime portrait of jungkook arty vibes greyscale pink tint" value={input} onChange={onChange} />
+      <span class="info-text"><h5>The first picture takes between 1-3 mins to load</h5></span>
         <div className="prompt-buttons">
           <a 
           className={
@@ -193,7 +194,8 @@ const Home = () => {
           {/* added a loading indicator here */}
       <div className="generate">
         {isGenerating ? (
-          <span className="loader"></span>
+          <span className="loader">  
+          </span>
         ) : (
           <p>Generate</p>
         )}

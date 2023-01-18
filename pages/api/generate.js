@@ -26,6 +26,7 @@ const bufferToBase64 = (buffer) => {
           method: 'POST',
           body: JSON.stringify({
             inputs: input,
+            'x-use-cache': 'false', 
           }),
         }
       );
